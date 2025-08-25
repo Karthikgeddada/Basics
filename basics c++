@@ -1,0 +1,43 @@
+Problem:
+Given an array of integers, find the second smallest element.
+
+Input: n=5, arr=[12, 5, 7, 3, 19]
+
+Output: 5
+
+Constraints:
+
+2 <= n <= 10^5
+
+-10^9 <= arr[i] <= 10^9
+
+👉 You solve it → then I explain optimal solution + time/space complexity.
+#include <bits/stdc++.h>
+using namespace std;
+
+int minno(vector<int> arr) {
+    int s = arr.size();
+    int minimum = arr[0]; // start with first element
+
+    for (int i = 1; i < s; i++) {
+        if (arr[i] < minimum) {
+            minimum = arr[i];
+        }
+    }
+    return minimum;
+}
+
+int main() {
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Minimum element = " << minno(arr) << endl;
+    return 0;
+}
