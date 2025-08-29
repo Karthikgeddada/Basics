@@ -41,3 +41,35 @@ int main() {
     cout << "Minimum element = " << minno(arr) << endl;
     return 0;
 }
+
+ 🔥Second Largest element
+#include <bits/stdc++.h>
+using namespace std;
+
+int secondLargest(vector<int>& num) {
+    int n = num.size();
+    if(n < 2) return -1; // no second largest
+
+    int first = INT_MIN, second = INT_MIN;
+    for(int i = 0; i < n; i++) {
+        if(num[i] > first) {
+            second = first;
+            first = num[i];
+        } else if(num[i] > second && num[i] < first) {
+            second = num[i];
+        }
+    }
+    return (second == INT_MIN) ? -1 : second; 
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << secondLargest(arr) << endl;
+    return 0;
+}
